@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://ceu7v50bunjkj"]
+
+[ext_resource type="Texture2D" uid="uid://cb8i5ijqde5od" path="res://art/enemyFlyingAlt_1.png" id="1_adr5f"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a3dnd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7m5m0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_adr5f")
+}],
+"loop": true,
+"name": &"tmp",
+"speed": 5.0
+}]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_mask = 0
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(32, 27)
+shape = SubResource("CapsuleShape2D_a3dnd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(184, 139)
+sprite_frames = SubResource("SpriteFrames_7m5m0")
+animation = &"tmp"
